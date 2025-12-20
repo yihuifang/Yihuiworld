@@ -8,28 +8,27 @@ import { AboutPage } from './pages/AboutPage';
 import { ProjectDetailPage } from './pages/ProjectDetailPage';
 
 function AppContent() {
-  const location = useLocation();
-
-  return (
-    <div className="bg-[#1a1a1a] min-h-screen w-full relative font-['Nunito_Sans'] overscroll-none">
-      <ScrollToTop />
-      <Navigation />
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<WorkPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/project/:id" element={<ProjectDetailPage />} />
-        </Routes>
-      </AnimatePresence>
-      <Footer />
-    </div>
-  );
+const location = useLocation();
+return (
+<div className="bg-[#1a1a1a] min-h-screen w-full relative font-['Nunito_Sans'] overscroll-none">
+<ScrollToTop />
+<Navigation />
+<AnimatePresence mode="wait">
+<Routes location={location} key={location.pathname}>
+<Route path="/" element={<WorkPage />} />
+<Route path="/about" element={<AboutPage />} />
+<Route path="/project/:id" element={<ProjectDetailPage />} />
+</Routes>
+</AnimatePresence>
+<Footer />
+</div>
+);
 }
 
 export default function App() {
-  return (
-    <BrowserRouter>
-      <AppContent />
-    </BrowserRouter>
-  );
+return (
+<BrowserRouter basename="/Yihuiworld">
+<AppContent />
+</BrowserRouter>
+);
 }
