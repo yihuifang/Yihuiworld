@@ -1,8 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Download, Mail, X, Phone } from 'lucide-react';
-import profileImage from 'figma:asset/6408d50e4f0dc5ee35e17876429276ad2cb8ba7e.png';
-import nextportLogo from 'figma:asset/32aa5d9c487f5658c70d6d88dd79b1058c55aae7.png';
 
 export function AboutPage() {
   const [showContactCard, setShowContactCard] = React.useState(false);
@@ -95,7 +93,7 @@ export function AboutPage() {
             transition={{ delay: 0.5, duration: 0.6 }}
             className="relative w-full h-auto aspect-[267/319]"
           >
-            <img src={profileImage} alt="Yihui" className="w-full h-full object-contain" />
+            <img src="https://img.notionusercontent.com/s3/prod-files-secure%2Fe7cbf9cd-15fc-41fa-a0d8-6e4c94a195fa%2Fe886724c-8b83-4391-aa68-b59923dcf4f2%2Fme.png/size/w=670?exp=1766336459&sig=EBalPJc59s_2sK3kuHPDw--CIpwAsv68mFQB_c6QGRg&id=2cfb337f-8e07-8051-8162-c10841769239&table=block&userId=48b8c89b-bfc9-4021-a706-ef0ca35613a3" alt="Yihui" className="w-full h-full object-contain" />
           </motion.div>
 
           {/* Bio Text */}
@@ -204,7 +202,7 @@ export function AboutPage() {
               {/* Company Logo */}
               <div className="flex-shrink-0 w-16 h-16 rounded-xl overflow-hidden bg-white/5 border border-white/10 flex items-center justify-center">
                 <img 
-                  src={nextportLogo} 
+                  src="https://media.licdn.com/dms/image/v2/D4E0BAQF58Lv6J7NZiQ/company-logo_100_100/B4EZoHFRYTIoAU-/0/1761055415476/nextportchina_logo?e=1767830400&v=beta&t=A49Azr-Kbwve0VLyGJy3Bw0cMYuhEmK83Yn2AaZ-vbQ" 
                   alt="NextportChina"
                   className="w-full h-full object-cover"
                 />
