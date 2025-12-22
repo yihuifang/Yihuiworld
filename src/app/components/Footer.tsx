@@ -6,10 +6,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative w-full bg-gradient-to-b from-[#252525] to-[#1a1a1a] border-t border-white/5 overflow-hidden">
-      {/* Subtle background glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-[#51e9d6]/5 rounded-full blur-[100px] pointer-events-none" />
-      
+    <footer className="relative w-full overflow-hidden">
       <div className="relative z-10 max-w-[1200px] mx-auto px-8 py-16">
 
         {/* Divider */}

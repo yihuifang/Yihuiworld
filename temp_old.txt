@@ -1,0 +1,1 @@
+                       {section.title.match(/^[12]\\./) || section.title === "Agent + Design Tool" || section.title === "Agent + Infinite Canvas" ? (

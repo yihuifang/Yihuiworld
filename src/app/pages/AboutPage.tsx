@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Download, Mail, X, Phone } from 'lucide-react';
+import { AvatarImage, SkeletonImage } from '../components/SkeletonImage';
 
 export function AboutPage() {
   const [showContactCard, setShowContactCard] = React.useState(false);
@@ -34,20 +35,19 @@ export function AboutPage() {
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="relative flex flex-col min-h-screen pt-[150px] px-8 items-center pb-20"
+      className="relative flex flex-col pt-[150px] px-8 items-center pb-20"
     >
-      {/* Subtle Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#242424] via-[#1a1a1a] to-[#1a2020] pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#51e9d6]/3 via-transparent to-[#51e9d6]/5 pointer-events-none" />
+      {/* Subtle Gradient Overlay */}
+      <div className="fixed inset-0 bg-gradient-to-b from-[#51e9d6]/3 via-transparent to-[#51e9d6]/5 pointer-events-none" />
       
       {/* Large Radial Glows */}
-      <div className="absolute top-[10%] left-[5%] w-[500px] h-[500px] bg-[#51e9d6]/[0.08] rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-[40%] right-[10%] w-[400px] h-[400px] bg-[#51e9d6]/[0.06] rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-[20%] left-[15%] w-[450px] h-[450px] bg-[#51e9d6]/[0.07] rounded-full blur-[110px] pointer-events-none" />
+      <div className="fixed top-[10%] left-[5%] w-[500px] h-[500px] bg-[#51e9d6]/[0.08] rounded-full blur-[120px] pointer-events-none" />
+      <div className="fixed top-[40%] right-[10%] w-[400px] h-[400px] bg-[#51e9d6]/[0.06] rounded-full blur-[100px] pointer-events-none" />
+      <div className="fixed bottom-[20%] left-[15%] w-[450px] h-[450px] bg-[#51e9d6]/[0.07] rounded-full blur-[110px] pointer-events-none" />
       
       {/* Geometric Lines */}
       <div 
-        className="absolute inset-0 opacity-[0.08] pointer-events-none"
+        className="fixed inset-0 opacity-[0.08] pointer-events-none"
         style={{
           backgroundImage: `
             linear-gradient(90deg, rgba(81, 233, 214, 0.3) 1px, transparent 1px),
@@ -59,7 +59,7 @@ export function AboutPage() {
       
       {/* Noise Texture */}
       <div 
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        className="fixed inset-0 opacity-[0.03] pointer-events-none"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
           backgroundRepeat: 'repeat',
@@ -72,9 +72,9 @@ export function AboutPage() {
           initial={{ y: -30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.6 }}
-          className="mb-16"
+          className="mb-12"
         >
-          <h1 className="font-['Nunito_Sans'] font-black text-[64px] leading-none text-[#51e9d6] text-center">
+          <h1 className="font-['Nunito_Sans'] font-black text-[64px] leading-none text-[#51e9d6] text-center mt-8">
             I'm Yihui. Nice to meet you.
           </h1>
         </motion.div>
@@ -91,9 +91,15 @@ export function AboutPage() {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="relative w-full h-auto aspect-[267/319]"
+            className="relative w-full h-auto"
           >
-            <img src="https://img.notionusercontent.com/s3/prod-files-secure%2Fe7cbf9cd-15fc-41fa-a0d8-6e4c94a195fa%2Fe886724c-8b83-4391-aa68-b59923dcf4f2%2Fme.png/size/w=670?exp=1766336459&sig=EBalPJc59s_2sK3kuHPDw--CIpwAsv68mFQB_c6QGRg&id=2cfb337f-8e07-8051-8162-c10841769239&table=block&userId=48b8c89b-bfc9-4021-a706-ef0ca35613a3" alt="Yihui" className="w-full h-full object-contain" />
+            <AvatarImage 
+              src="https://test.fukit.cn/autoupload/f/GG6hOLlW8q9jJ4fYFvWrH7KXl_QqVl-bpSwqP4fJO68/20251222/Vzw0/765X957/me.png/webp" 
+              alt="Yihui" 
+              className="w-full h-full"
+              objectFit="contain"
+              skeleton="none"
+            />
           </motion.div>
 
           {/* Bio Text */}
@@ -112,7 +118,7 @@ export function AboutPage() {
 
             <div className="flex gap-3 items-center self-start mt-6 mb-2">
               <motion.a
-                href="https://file.notion.so/f/f/e7cbf9cd-15fc-41fa-a0d8-6e4c94a195fa/46a3768b-2fb7-42d2-96c8-3baab6840911/CV_%E6%96%B9%E6%BC%AA%E5%8D%89_2025_%E4%B8%AD%E6%96%87%E7%89%88.pdf?table=block&id=2cfb337f-8e07-804c-99cb-f36b65dcb4a5&spaceId=e7cbf9cd-15fc-41fa-a0d8-6e4c94a195fa&expirationTimestamp=1766260800000&signature=-xMlJ_QsorETTMtks_AiL8qxAtC8NpfOzSuNpL_PQ7A&downloadName=CV_%E6%96%B9%E6%BC%AA%E5%8D%89_2025+%E4%B8%AD%E6%96%87%E7%89%88.pdf"
+                href="https://drive.google.com/file/d/1JzjASrA4HPPjzMA2P8lZGpWUTDfnfZ7C/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#51e9d6] text-black font-['Nunito_Sans'] font-bold rounded-lg hover:bg-[#3fd4c1] transition-colors duration-300 shadow-lg shadow-[#51e9d6]/20 hover:shadow-[#51e9d6]/40"
@@ -141,7 +147,7 @@ export function AboutPage() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="mb-20"
+          className="mb-20 max-w-4xl mx-auto"
         >
           <h2 className="font-['Nunito_Sans'] font-black text-[36px] text-[#51e9d6] mb-10">Journey</h2>
           
@@ -156,10 +162,12 @@ export function AboutPage() {
             >
               {/* Company Logo */}
               <div className="flex-shrink-0 w-16 h-16 rounded-xl overflow-hidden bg-white flex items-center justify-center p-2">
-                <img 
-                  src="https://images.seeklogo.com/logo-png/61/1/coohom-logo-png_seeklogo-615437.png" 
+                <SkeletonImage
+                  src="https://qhstaticssl.kujiale.com/image/webp/1766374602999/63098925F04C39B6FCAE9DEEF5BFA72E.webp" 
                   alt="Coohom"
-                  className="w-full h-full object-contain"
+                  className="w-full h-full"
+                  objectFit="contain"
+                  priority={true}
                 />
               </div>
               
@@ -201,10 +209,11 @@ export function AboutPage() {
             >
               {/* Company Logo */}
               <div className="flex-shrink-0 w-16 h-16 rounded-xl overflow-hidden bg-white/5 border border-white/10 flex items-center justify-center">
-                <img 
+                <SkeletonImage
                   src="https://media.licdn.com/dms/image/v2/D4E0BAQF58Lv6J7NZiQ/company-logo_100_100/B4EZoHFRYTIoAU-/0/1761055415476/nextportchina_logo?e=1767830400&v=beta&t=A49Azr-Kbwve0VLyGJy3Bw0cMYuhEmK83Yn2AaZ-vbQ" 
                   alt="NextportChina"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full"
+                  objectFit="cover"
                 />
               </div>
               
@@ -229,10 +238,11 @@ export function AboutPage() {
             >
               {/* Company Logo */}
               <div className="flex-shrink-0 w-16 h-16 rounded-xl overflow-hidden bg-white flex items-center justify-center p-2">
-                <img 
+                <SkeletonImage
                   src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc60300f7-b148-4c09-868b-5e36c1e86f34_1200x1200.jpeg" 
                   alt="KLM"
-                  className="w-full h-full object-contain"
+                  className="w-full h-full"
+                  objectFit="contain"
                 />
               </div>
               
@@ -257,10 +267,11 @@ export function AboutPage() {
             >
               {/* Company Logo */}
               <div className="flex-shrink-0 w-16 h-16 rounded-xl overflow-hidden bg-white flex items-center justify-center p-2">
-                <img 
+                <SkeletonImage
                   src="https://media.licdn.com/dms/image/v2/C510BAQEq55a369mthA/company-logo_100_100/company-logo_100_100/0/1631411965736/netease_logo?e=1767830400&v=beta&t=1Ml0CwbOXdNEeAyUMIbJQ1PyJsdKhmgQ61KBKCpvoLs" 
                   alt="NetEase"
-                  className="w-full h-full object-contain"
+                  className="w-full h-full"
+                  objectFit="contain"
                 />
               </div>
               

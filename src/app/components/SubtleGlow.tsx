@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 
 export function SubtleGlow() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  // 初始化为屏幕中心位置
+  const [mousePosition, setMousePosition] = useState({ 
+    x: typeof window !== 'undefined' ? window.innerWidth / 2 : 0, 
+    y: typeof window !== 'undefined' ? window.innerHeight / 2 : 0 
+  });
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {

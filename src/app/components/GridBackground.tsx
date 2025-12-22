@@ -37,9 +37,6 @@ export function GridBackground() {
 
       {/* 顶部渐变遮罩 */}
       <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-[#2e2e2e] to-transparent pointer-events-none" />
-      
-      {/* 底部渐变遮罩 */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#2e2e2e] to-transparent pointer-events-none" />
     </div>
   );
 }
