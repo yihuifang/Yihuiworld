@@ -42,7 +42,7 @@ export function LeafVeinBackground() {
       <div 
         className="absolute inset-0 z-0 opacity-50 transition-opacity duration-300"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1519370855830-34c503c41d0f?q=80&w=1061&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
+          backgroundImage: `url('https://test.fukit.cn/autoupload/f/GG6hOLlW8q9jJ4fYFvWrH7KXl_QqVl-bpSwqP4fJO68/20251231/Zg7Q/leaf.avif/webp')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           filter: 'brightness(0.28) contrast(1.3)',
